@@ -1,0 +1,12 @@
+# Local review captures and generated download bundles
+/.qa/
+/raster-ui-v*.zip
+
+# Local machine / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
