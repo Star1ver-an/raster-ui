@@ -1,4 +1,4 @@
-/* Raster UI v0.3.0 — pixel particles and interaction, no dependencies. */
+/* Raster UI v0.4.0 — pixel particles and interaction, no dependencies. */
 (function (global) {
   'use strict';
   if (global.RasterUI) return;
@@ -20,7 +20,7 @@
 <symbol id="rg-i-check" viewBox="0 0 24 24"><path d="M2 11h4v4h4v-4h3V8h3V5h3V2h3v6h-3v3h-3v3h-3v3h-3v4H6v-4H2z"/></symbol>
 </defs></svg>`;
   const ICON_NAMES = ['grid','folder','design','web','phone','doc','data','gear','search','arrow','plus','add','close','check'];
-  const initialized = new WeakSet(), loadingStates = new WeakMap(), dialogOpeners = new WeakMap();
+  const initialized = new WeakSet(), loadingStates = new WeakMap(), dialogOpeners = new WeakMap(), toasterRegions = new WeakMap();
   const motions = new WeakMap(), runningMotions = new Set(), closingDialogs = new WeakMap(), feedbackTimers = new WeakMap();
   const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let motionPreference = 'auto';
@@ -244,32 +244,48 @@
     const use = document.createElementNS(el.namespaceURI, 'use'); use.setAttribute('href', '#rg-i-' + name); el.append(use);
     return el;
   }
+  // An outer widget never owns the controls or panels of a nested widget.
+  const owned = (group, selector, owner) => all(selector, group).filter(el => el.closest(owner) === group);
+  const disabled = el => el.matches(':disabled') || el.getAttribute('aria-disabled') === 'true';
+  function defaultButtonType(el) {
+    if (el instanceof HTMLButtonElement && !el.hasAttribute('type')) el.type = 'button';
+  }
   function chooseSegment(group, button, focus = false, notify = true) {
-    if (!button || button.disabled) return;
-    const previous = group.querySelector('[aria-pressed="true"]')?.dataset.value;
-    all('button[data-value]', group).forEach(b => { b.setAttribute('aria-pressed', String(b === button)); b.tabIndex = b === button ? 0 : -1; });
-    if (focus) button.focus();
-    if (notify && previous !== button.dataset.value) { feedback(button, 'select'); emit(group, 'rg:change', { value: button.dataset.value }); }
+    const buttons = owned(group, 'button[data-value]', '[data-rg-segmented]');
+    if (button && (!buttons.includes(button) || disabled(button))) return;
+    const previous = buttons.find(b => b.getAttribute('aria-pressed') === 'true')?.dataset.value;
+    buttons.forEach(b => { defaultButtonType(b); b.setAttribute('aria-pressed', String(b === button)); b.tabIndex = b === button ? 0 : -1; });
+    if (focus && button) button.focus();
+    if (notify && button && previous !== button.dataset.value) { feedback(button, 'select'); emit(group, 'rg:change', { value: button.dataset.value }); }
   }
   function chooseTab(group, button, focus = false, notify = true) {
-    if (!button || button.disabled) return;
-    const previous = group.querySelector('[role="tab"][aria-selected="true"]')?.id;
-    all('[role="tab"]', group).forEach(tab => {
+    const tabs = owned(group, '[role="tab"]', '[data-rg-tabs]');
+    if (button && (!tabs.includes(button) || disabled(button))) return;
+    const previous = tabs.find(tab => tab.getAttribute('aria-selected') === 'true')?.id;
+    let selectedPanel;
+    tabs.forEach(tab => {
+      defaultButtonType(tab);
+      if (!tab.id) tab.id = 'rg-tab-' + (++unique);
       tab.setAttribute('aria-selected', String(tab === button)); tab.tabIndex = tab === button ? 0 : -1;
       const panel = document.getElementById(tab.getAttribute('aria-controls'));
-      if (panel && group.contains(panel)) { panel.hidden = tab !== button; panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tab.id); }
+      if (panel && panel.closest('[data-rg-tabs]') === group) {
+        panel.hidden = tab !== button; panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tab.id);
+        if (tab === button) selectedPanel = panel;
+      }
     });
-    if (focus) button.focus();
-    if (notify && previous !== button.id) {
+    // A removed selected tab must not leave its former panel visible.
+    owned(group, '[role="tabpanel"], .rg-tabpanel', '[data-rg-tabs]').forEach(panel => { panel.hidden = panel !== selectedPanel; });
+    if (focus && button) button.focus();
+    if (notify && button && previous !== button.id) {
       feedback(button, 'select');
-      const panel = document.getElementById(button.getAttribute('aria-controls')); if (panel) reveal(panel);
+      if (selectedPanel) reveal(selectedPanel);
       emit(group, 'rg:tabchange', { value: button.dataset.value || button.id, panel: button.getAttribute('aria-controls') });
     }
   }
   function moveFocus(event, nodes, select) {
     const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
     if (!keys.includes(event.key)) return;
-    const enabled = nodes.filter(b => !b.disabled); if (!enabled.length) return;
+    const enabled = nodes.filter(b => !disabled(b)); if (!enabled.length) return;
     let i = enabled.indexOf(event.target);
     if (i < 0) return;
     if (event.key === 'Home') i = 0;
@@ -302,34 +318,62 @@
     return record.promise;
   }
   function toast(message, options = {}) {
+    if (options.context !== undefined && (!(options.context instanceof Element) || !options.context.isConnected || options.context.ownerDocument !== document)) throw new TypeError('toast context must be a connected element in this document.');
     const duration = Math.max(0, Number.isFinite(options.duration) ? options.duration : 4500);
     const origin = document.activeElement;
-    let region = q('.rg-toaster');
-    if (!region) { region = document.createElement('div'); region.className = 'rg-root rg-toaster'; region.setAttribute('aria-label', '通知'); document.body.append(region); }
+    // Modal descendants stay focusable; a body-level top-layer toast would be inert.
+    const modal = origin?.closest('dialog:modal') || all('dialog:modal').pop();
+    const theme = options.context || (origin instanceof Element && origin !== document.body ? origin : modal || document.body);
+    const host = modal || theme.closest('.rg-root:not(.rg-toaster)') || document.body;
+    let region = toasterRegions.get(host);
+    if (!region?.isConnected) {
+      region = document.createElement('div'); region.className = 'rg-root rg-toaster'; region.setAttribute('aria-label', '通知'); host.append(region);
+      // A manual popover escapes dialog overflow without moving out of its focus scope.
+      if (typeof region.showPopover === 'function') {
+        region.setAttribute('popover', 'manual');
+        try { region.showPopover(); } catch { region.removeAttribute('popover'); }
+      }
+      toasterRegions.set(host, region);
+    }
     const el = document.createElement('div'); el.className = 'rg-toast' + (options.variant === 'error' ? ' rg-toast--error' : '');
+    // Capture local token overrides even when the origin is deeper than its rg-root.
+    const themeStyle = getComputedStyle(theme);
+    for (const name of themeStyle) if (name.startsWith('--rg-')) el.style.setProperty(name, themeStyle.getPropertyValue(name));
     el.setAttribute('role', options.variant === 'error' ? 'alert' : 'status');
     const text = document.createElement('span'); text.className = 'rg-toast__text'; text.textContent = String(message);
     const close = document.createElement('button'); close.type = 'button'; close.className = 'rg-toast__close'; close.setAttribute('aria-label', '关闭通知'); close.append(icon('close'));
-    let timer, start = 0, remaining = duration, dismissed = false, dismissPromise;
+    let timer, start = null, remaining = duration, dismissed = false, dismissPromise, pending = false, retry = false;
+    const onDialogClose = () => { if (!modal.open) dismiss(); };
     const dismiss = () => {
       if (dismissed) return dismissPromise; dismissed = true; clearTimeout(timer);
+      modal?.removeEventListener('close', onDialogClose);
       dismissPromise = (async () => {
         await play(el,[{transform:'translateY(0)',opacity:1},{transform:'translateY(8px)',opacity:0}],120,2);
         const restore = el.contains(document.activeElement); el.remove();
-        if (restore && origin instanceof HTMLElement && origin.isConnected && !origin.matches(':disabled')) origin.focus({preventScroll:true});
+        if (!region.childElementCount) { region.remove(); if (toasterRegions.get(host) === region) toasterRegions.delete(host); }
+        if (restore && origin instanceof HTMLElement && origin.isConnected && !origin.matches(':disabled') && !origin.closest('dialog:not([open])')) origin.focus({preventScroll:true});
       })();
       return dismissPromise;
     };
-    const pause = () => { clearTimeout(timer); if (start) remaining = Math.max(0, remaining - (Date.now() - start)); start = 0; };
-    const resume = () => { if (dismissed || !duration || el.matches(':hover') || el.contains(document.activeElement)) return; clearTimeout(timer); start = Date.now(); timer = setTimeout(dismiss, remaining); };
+    const pause = () => { clearTimeout(timer); if (start !== null) remaining = Math.max(0, remaining - (Date.now() - start)); start = null; };
+    const resume = () => { if (dismissed || pending || retry || !duration || el.matches(':hover') || el.contains(document.activeElement)) return; clearTimeout(timer); start = Date.now(); timer = setTimeout(dismiss, remaining); };
     close.addEventListener('click', dismiss); el.addEventListener('mouseenter', pause); el.addEventListener('mouseleave', resume); el.addEventListener('focusin', pause); el.addEventListener('focusout', () => setTimeout(resume, 0));
+    modal?.addEventListener('close', onDialogClose);
     el.append(icon(options.variant === 'error' ? 'close' : 'check'), text);
     if (options.action && typeof options.action.onClick === 'function') {
       const action = document.createElement('button'); action.type = 'button'; action.className = 'rg-toast__action'; action.textContent = String(options.action.label || '撤销');
       action.addEventListener('click', async () => {
-        action.disabled = true;
+        if (pending || dismissed) return;
+        pending = true; pause(); action.disabled = true; action.setAttribute('aria-busy', 'true');
         try { await options.action.onClick(); dismiss(); }
-        catch { action.disabled = false; toast('操作未完成，请重试。', { variant:'error' }); }
+        catch {
+          if (!dismissed) {
+            // Keep the original action available until retry succeeds or the user closes it.
+            retry = true; action.disabled = false;
+            text.textContent = String(message) + ' 操作未完成，请重试。';
+            el.classList.add('rg-toast--error'); el.setAttribute('role', 'alert');
+          }
+        } finally { pending = false; action.removeAttribute('aria-busy'); }
       }); el.append(action);
     }
     el.append(close); region.append(el); reveal(el); resume();
@@ -361,18 +405,16 @@
         control.setAttribute('aria-labelledby', label.id);
       }
     });
-    nodes('[data-rg-segmented]').forEach(group => {
-      if (initialized.has(group)) return;
+    const groups = selector => [...new Set([...(root instanceof Element && root.closest(selector) ? [root.closest(selector)] : []), ...nodes(selector)])];
+    groups('[data-rg-segmented]').forEach(group => {
       group.setAttribute('role', 'group');
-      chooseSegment(group, q('button[aria-pressed="true"]:not(:disabled)', group) || q('button[data-value]:not(:disabled)', group), false, false);
-      initialized.add(group);
+      const buttons = owned(group, 'button[data-value]', '[data-rg-segmented]').filter(b => !disabled(b));
+      chooseSegment(group, buttons.find(b => b.getAttribute('aria-pressed') === 'true') || buttons[0], false, false);
     });
-    nodes('[data-rg-tabs]').forEach(group => {
-      if (initialized.has(group)) return;
-      const list = q('.rg-tablist', group); if (list) list.setAttribute('role', 'tablist');
-      all('[role="tab"]', group).forEach(tab => { if (!tab.id) tab.id = 'rg-tab-' + (++unique); });
-      chooseTab(group, q('[role="tab"][aria-selected="true"]:not(:disabled)', group) || q('[role="tab"]:not(:disabled)', group), false, false);
-      initialized.add(group);
+    groups('[data-rg-tabs]').forEach(group => {
+      owned(group, '.rg-tablist', '[data-rg-tabs]').forEach(list => list.setAttribute('role', 'tablist'));
+      const tabs = owned(group, '[role="tab"]', '[data-rg-tabs]').filter(tab => !disabled(tab));
+      chooseTab(group, tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0], false, false);
     });
     nodes('[data-rg-indeterminate]').forEach(el => { if (!initialized.has(el)) { el.indeterminate = true; initialized.add(el); } });
     nodes('dialog.rg-dialog').forEach(dialog => {
@@ -395,23 +437,32 @@
     });
     if (eventsInstalled) return;
     eventsInstalled = true;
+    // Press feedback runs before business listeners. Synchronous success/error wins,
+    // without requiring application handlers to wait for a microtask.
     document.addEventListener('click', e => {
-      const button = e.target.closest('button'); if (!button || button.disabled) return;
-      if (button.classList.contains('rg-button')) feedback(button, 'press');
+      const button = e.target instanceof Element && e.target.closest('button');
+      if (button && !disabled(button) && button.classList.contains('rg-button') && !['success', 'error'].includes(button.dataset.rgFeedback)) feedback(button, 'press');
+    }, true);
+    document.addEventListener('click', e => {
+      const button = e.target instanceof Element && e.target.closest('button'); if (!button) return;
+      const group = button.hasAttribute('data-value') && button.closest('[data-rg-segmented]');
+      const tabs = button.getAttribute('role') === 'tab' && button.closest('[data-rg-tabs]');
+      if (group || tabs) e.preventDefault();
+      if (disabled(button)) return;
       if (button.hasAttribute('data-rg-open')) openDialog(button.dataset.rgOpen, button);
       if (button.hasAttribute('data-rg-close')) { const dialog = button.closest('dialog'); if (dialog) closeDialog(dialog, button.dataset.rgClose); }
-      const group = button.closest('[data-rg-segmented]'); if (group && button.hasAttribute('data-value')) chooseSegment(group, button);
-      if (button.getAttribute('role') === 'tab') { const tabs = button.closest('[data-rg-tabs]'); if (tabs) chooseTab(tabs, button); }
+      if (group) chooseSegment(group, button);
+      if (tabs) chooseTab(tabs, button);
     });
     document.addEventListener('keydown', e => {
       if (!(e.target instanceof HTMLButtonElement)) return;
       const group = e.target.closest('[data-rg-segmented]');
-      if (group) moveFocus(e, all('button[data-value]', group), b => chooseSegment(group, b, true));
+      if (group) moveFocus(e, owned(group, 'button[data-value]', '[data-rg-segmented]'), b => chooseSegment(group, b, true));
       const tabs = e.target.closest('[data-rg-tabs]');
-      if (tabs && e.target.getAttribute('role') === 'tab') moveFocus(e, all('[role="tab"]', tabs), b => chooseTab(tabs, b, true));
+      if (tabs && e.target.getAttribute('role') === 'tab') moveFocus(e, owned(tabs, '[role="tab"]', '[data-rg-tabs]'), b => chooseTab(tabs, b, true));
     });
   }
-  global.RasterUI = Object.freeze({ version: '0.3.0', icons: Object.freeze([...ICON_NAMES]), init, icon, openDialog, closeDialog, toast, setLoading, feedback, reveal, setMotion, getMotion, particles });
+  global.RasterUI = Object.freeze({ version: '0.4.0', icons: Object.freeze([...ICON_NAMES]), init, icon, openDialog, closeDialog, toast, setLoading, feedback, reveal, setMotion, getMotion, particles });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init(), { once: true });
   else init();
 })(window);

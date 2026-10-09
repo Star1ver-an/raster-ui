@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raster UI v0.4 回归验证</title>
+  <link rel="stylesheet" href="../raster-ui.css">
+  <script defer src="../raster-ui.js"></script>
+  <script defer src="regression-tests.js"></script>
+</head>
+<body class="rg-root" style="padding:24px; background:var(--rg-surface)">
+  <h1>v0.4 回归验证</h1>
+  <p>验证嵌套选择、动态初始化、表单按钮、业务反馈、弹窗内通知与异步重试。通知计时使用可控时钟；测试结束后恢复计时器和动态偏好。可重复运行。</p>
+  <button id="run" type="button" class="rg-button">运行验证</button>
+  <p id="summary" role="status">尚未运行</p>
+  <ol id="results" aria-live="polite"></ol>
+  <pre id="diagnostics" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+  <div id="fixture"></div>
+  <p><a href="motion.html">交互验证</a> · <a href="particles.html">粒子验证</a> · <a href="../index.html">返回组件库</a></p>
+</body>
+</html>
