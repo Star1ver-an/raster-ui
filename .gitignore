@@ -10,3 +10,6 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Local material UI review capture
+/material-ui-preview.png

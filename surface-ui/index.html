@@ -1,142 +1,91 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="neumorphic">
+<html lang="zh-CN" data-theme="glass">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Surface UI · 可切换皮肤</title>
+  <title>Surface UI · Liquid Glass Material Lab</title>
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="themes/neumorphic.css">
   <link rel="stylesheet" href="themes/glass.css">
+  <link rel="stylesheet" href="../material-ui.css?v=0.2.1">
+  <script defer src="../material-ui.js?v=0.2.1"></script>
 </head>
-<body data-theme="neumorphic" data-glass-style="clear">
+<body data-theme="glass" data-glass-style="frosted">
   <div class="su-shell">
     <header class="su-top">
       <div class="su-brand">
         <div class="su-brand-mark" aria-hidden="true"><i></i></div>
         <div>
           <h1 class="su-title">Surface UI</h1>
-          <p class="su-subtitle">共用结构 · 新拟态与玻璃拟态独立皮肤</p>
+          <p class="su-subtitle">Material lab · 两种玻璃拟态的细节练习</p>
         </div>
       </div>
       <div class="su-theme-controls">
         <div class="su-theme-toggle" role="group" aria-label="切换界面风格">
-          <button type="button" data-theme-value="neumorphic" aria-pressed="true">新拟态</button>
-          <button type="button" data-theme-value="glass" aria-pressed="false">玻璃拟态</button>
+          <button type="button" data-theme-value="neumorphic" aria-pressed="false">新拟态</button>
+          <button type="button" data-theme-value="glass" aria-pressed="true">玻璃拟态</button>
         </div>
         <div class="su-glass-style-toggle" role="group" aria-label="切换玻璃拟态风格">
-          <button type="button" data-glass-style-value="clear" aria-pressed="true">高透亮</button>
-          <button type="button" data-glass-style-value="frosted" aria-pressed="false">磨砂清新</button>
+          <button type="button" data-glass-style-value="clear" aria-pressed="false">液态彩光</button>
+          <button type="button" data-glass-style-value="frosted" aria-pressed="true">柔雾磨砂</button>
         </div>
       </div>
     </header>
 
     <div class="su-layout">
-      <aside class="su-side">
-        <nav class="su-nav" aria-label="组件目录">
-          <p class="su-nav-label">基础</p>
-          <a href="#controls" aria-current="page"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg><span>控件</span></a>
-          <a href="#forms"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3"/><path d="M8 12h8"/></svg><span>表单</span></a>
-          <a href="#cards"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/></svg><span>卡片</span></a>
-          <a href="#lists"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg><span>列表</span></a>
-        </nav>
-      </aside>
-
       <main class="su-main">
-        <section id="controls" class="su-section">
-          <h2 class="su-section-title">操作控件</h2>
-          <article class="su-panel">
-            <div class="su-row">
-              <button class="su-button su-button--primary" type="button">创建项目</button>
-              <button class="su-button" type="button">预览</button>
-              <button class="su-button" type="button" aria-pressed="true">已选择</button>
-              <button class="su-button su-button--danger" type="button">删除</button>
-              <button class="su-button su-button--icon" type="button" aria-label="设置"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.8 6.8l2 2M15.2 15.2l2 2M17.2 6.8l-2 2M8.8 15.2l-2 2"/></svg></button>
-              <button class="su-button" type="button" disabled>暂不可用</button>
+        <section class="su-reference-stage" aria-label="两种玻璃拟态参考">
+          <div class="su-reference-intro">
+            <div>
+              <span class="su-reference-kicker">GLASS MATERIAL STUDY · 02</span>
+              <h2 class="su-reference-title"><span class="frosted-only">Frosted Glass</span><span class="liquid-only">Liquid Glass</span></h2>
+              <p class="su-reference-copy frosted-only">奶油白底、低饱和薄荷与腮红色的漫反射。边缘只留一圈很薄的高光，让控件像被轻轻压进雾面玻璃。</p>
+              <p class="su-reference-copy liquid-only">深色背景里的彩色折射。每一枚控件都有明确的发光边缘、下方投影和一小块会流动的色彩。</p>
             </div>
-            <div class="su-row" style="margin-top:20px">
-              <div class="su-tool-group" role="group" aria-label="视图切换">
-                <button class="su-button" type="button" aria-pressed="true">日</button>
-                <button class="su-button" type="button" aria-pressed="false">周</button>
-                <button class="su-button" type="button" aria-pressed="false">月</button>
-              </div>
-              <span class="su-chip su-chip--success">稳定</span>
-              <span class="su-chip su-chip--warning">待处理</span>
-              <span class="su-chip su-chip--danger">风险</span>
-              <span class="su-chip su-chip--accent">新拟态</span>
+            <div class="su-reference-meta"><span class="frosted-only">01 · SOFT FOCUS</span><span class="liquid-only">02 · CHROMATIC REFRACTION</span><span class="su-live-dot" aria-hidden="true"></span></div>
+          </div>
+
+          <article class="su-reference-artboard su-artboard--frosted frosted-only">
+            <div class="su-frosted-grid">
+              <article class="su-frosted-tile su-frosted-tile--control">
+                <div class="su-segmented" role="group" aria-label="Segmented control">
+                  <button type="button" aria-pressed="true">Segmented</button><button type="button" aria-pressed="false">Control</button>
+                </div>
+                <div class="su-frosted-divider"></div>
+                <label class="su-frosted-range"><span class="sr-only">滑杆示例</span><input type="range" value="70" aria-label="滑杆示例"></label>
+              </article>
+              <article class="su-frosted-tile su-frosted-tile--copy"><span class="su-tile-kicker">SOFT SURFACE</span><h3>Card Title</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><i class="su-frosted-orb" aria-hidden="true"></i></article>
+              <article class="su-frosted-tile su-frosted-tile--tabs"><div class="su-tab-strip" role="group" aria-label="Tabs"><button aria-pressed="true">Tab 1</button><button aria-pressed="false">Tab 2</button><button aria-pressed="false">Tab 3</button></div></article>
+              <article class="su-frosted-tile su-frosted-tile--options"><div class="su-option-strip" role="group" aria-label="Options"><button aria-pressed="true">Option A</button><button aria-pressed="false">Option B</button></div></article>
+              <article class="su-frosted-tile su-frosted-tile--switch"><span>Switch</span><button class="su-pill-switch" type="button" role="switch" aria-checked="true" aria-label="薄荷开关"><i></i></button></article>
+              <article class="su-frosted-tile su-frosted-tile--portrait"><span class="su-tile-kicker">PALE MINT</span><i class="su-frosted-orb" aria-hidden="true"></i></article>
+              <article class="su-frosted-tile su-frosted-tile--switch su-frosted-tile--blush"><span>Switch</span><button class="su-pill-switch" type="button" role="switch" aria-checked="false" aria-label="腮红开关"><i></i></button></article>
+            </div>
+          </article>
+
+          <article class="su-reference-artboard su-artboard--liquid liquid-only">
+            <div class="su-liquid-head"><div><span class="su-tile-kicker">MATERIAL PLAYGROUND</span><h3>Liquid Glass</h3><p>Search projects...</p></div><div class="su-liquid-actions"><button aria-label="通知">4</button><button aria-label="添加">+</button></div></div>
+            <div class="su-liquid-grid">
+              <button class="su-liquid-control su-liquid-control--primary">Betuitthey</button>
+              <button class="su-liquid-control su-liquid-control--cyan">Secondary</button>
+              <label class="su-liquid-search"><span>Search projects...</span><i class="su-search-dot" aria-hidden="true"></i></label>
+              <label class="su-liquid-search su-liquid-search--wide"><span>Create workspace...</span><button aria-label="搜索"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg></button></label>
+              <button class="su-liquid-control su-liquid-control--mint">fοlect <b>→</b></button>
+              <button class="su-liquid-chip su-liquid-chip--refill"><i></i> refill</button>
+              <button class="su-liquid-chip su-liquid-chip--sync"><i class="su-check-mini">✓</i> sync</button>
+              <button class="su-liquid-control su-liquid-control--neutral">modab <b>☰</b></button>
+              <button class="su-liquid-chip su-liquid-chip--wide"><i class="su-arrow-mini">→</i> swith <em></em></button>
+              <button class="su-liquid-control su-liquid-control--invite">Invite member</button>
+              <div class="su-liquid-wheel" aria-label="彩色玻璃旋钮"><i></i><b>✓</b></div>
+              <button class="su-liquid-switch" type="button" role="switch" aria-checked="true" aria-label="彩色开关"><i></i></button>
+              <article class="su-liquid-plan"><span>bl∞r<br>starter.</span><i>✓</i><strong>Upgrade plan</strong></article>
+              <button class="su-liquid-chip su-liquid-chip--close">Oθkast <b>×</b></button>
             </div>
           </article>
         </section>
 
-        <section id="forms" class="su-section">
-          <h2 class="su-section-title">输入与状态</h2>
-          <article class="su-panel su-grid">
-            <div class="su-field">
-              <label for="project">项目名称</label>
-              <input id="project" placeholder="例如：软质工作室">
-            </div>
-            <div class="su-field su-field--error">
-              <label for="email">邮箱</label>
-              <input id="email" value="email@invalid" aria-invalid="true" aria-describedby="email-error">
-              <span class="su-error" id="email-error">请输入有效的邮箱。</span>
-            </div>
-            <div class="su-field">
-              <label for="type">类型</label>
-              <select id="type"><option>仪表盘</option><option>工具站</option><option>移动应用</option></select>
-            </div>
-            <div class="su-field">
-              <label for="brief">设计说明</label>
-              <textarea id="brief" placeholder="描述这层表面的材质与光照"></textarea>
-            </div>
-            <label class="su-check"><input type="checkbox" checked><i><svg viewBox="0 0 24 24"><path d="M5 13l4 4 10-10"/></svg></i>同步到云端</label>
-            <div class="su-control-row">
-              <span class="su-label">夜间模式</span>
-              <button class="su-switch" id="switchDemo" type="button" role="switch" aria-checked="true" aria-label="夜间模式"></button>
-            </div>
-            <div class="su-meter" style="grid-column:1 / -1">
-              <div class="su-control-row"><span class="su-label">触感强度</span><output>66%</output></div>
-              <input class="su-slider" type="range" value="66" aria-label="触感强度">
-              <div class="su-progress" role="progressbar" aria-label="完成度" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"><i></i></div>
-            </div>
-          </article>
-        </section>
+        <section class="rg-root material-library" data-material-library aria-label="Surface UI 组件库"></section>
 
-        <section id="cards" class="su-section">
-          <h2 class="su-section-title">数据卡片</h2>
-          <div class="su-grid su-grid--3">
-            <article class="su-card">
-              <div class="su-stat"><span class="su-label">进行中</span><span class="su-chip su-chip--accent">18</span></div>
-              <strong>项目数量</strong>
-              <p>有 4 项将在今天到期。</p>
-            </article>
-            <article class="su-card su-card--selected">
-              <div class="su-stat"><span class="su-label">健康度</span><span class="su-chip su-chip--success">优</span></div>
-              <strong>8.8 / 10</strong>
-              <p>选中态使用内凹与描边，避免只靠阴影。</p>
-            </article>
-            <article class="su-card su-card--interactive" tabindex="0">
-              <div class="su-stat"><span class="su-label">速度</span><span class="su-chip su-chip--warning">关注</span></div>
-              <strong>24.6 秒</strong>
-              <p>平均完成时间较上周下降。</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="lists" class="su-section">
-          <h2 class="su-section-title">列表与提示</h2>
-          <div class="su-list">
-            <article class="su-item">
-              <span class="su-item-icon"><svg viewBox="0 0 24 24"><path d="M6 5h12v14l-6-4-6 4z"/></svg></span>
-              <div><strong>设计规范评审</strong><span>今天 15:30 · 软质材料室</span></div>
-              <span class="su-chip su-chip--success">已确认</span>
-            </article>
-            <article class="su-item">
-              <span class="su-item-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-              <div><strong>新增控件原型</strong><span>明天 09:00 · 可交互</span></div>
-              <span class="su-chip su-chip--warning">待同步</span>
-            </article>
-          </div>
-          <p class="su-note" style="margin-top:18px"><strong>结构说明：</strong>页面结构、交互和组件语义共用；新拟态与玻璃拟态只在独立主题文件里表达材质和光影。</p>
-        </section>
       </main>
     </div>
   </div>
@@ -163,13 +112,15 @@ glassStyleButtons.forEach(button => {
     });
   });
 });
-document.querySelectorAll('.su-tool-group .su-button').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('.su-tool-group .su-button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-}));
-document.getElementById('switchDemo').addEventListener('click', event => {
+document.querySelectorAll('.su-segmented,.su-tab-strip,.su-option-strip').forEach(group => {
+  group.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
+    group.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  }));
+});
+document.querySelectorAll('.su-pill-switch,.su-liquid-switch').forEach(button => button.addEventListener('click', event => {
   const on = event.currentTarget.getAttribute('aria-checked') !== 'true';
   event.currentTarget.setAttribute('aria-checked', String(on));
-});
+}));
 </script>
 </body>
 </html>

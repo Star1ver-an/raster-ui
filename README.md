@@ -60,3 +60,14 @@
 验证页面是可重复运行的检查工具，不代表所有浏览器、读屏器或真实触摸设备都已覆盖。组合页还需手动检查空白提交、纠错后重试、取消后重开、筛选计数，以及 390 px 窄屏导航。
 
 仓库保留源码与验证页面，生成的 ZIP 压缩包和本地检查截图不纳入版本管理。
+
+## Material UI 材质探索
+
+`soft-ui` 和 `surface-ui` 共用根目录的 Material UI 层（当前 **v0.2.1**）。它对齐像素组件库的组织方式：5 个分组、15 个章节、组件搜索、每章可复制用法、键盘筛选 / 页签、焦点可见、目录滚动高亮，以及独立的材质动效实验室。Soft UI 只替换新拟态阴影变量；Surface UI 的柔雾磨砂和液态彩光只替换玻璃表面、边界、投影与颜色。
+
+| 入口 | 内容 |
+| --- | --- |
+| [`soft-ui/index.html`](soft-ui/index.html) | Precision Neumorphism 完整组件目录 |
+| [`surface-ui/index.html`](surface-ui/index.html) | Frosted Glass / Liquid Glass 完整组件目录 |
+| [`material-ui.css`](material-ui.css) | 共享布局、状态、响应式和各材质主题变量 |
+| [`material-ui.js`](material-ui.js) | 共享模板、交互、搜索、键盘支持和动效 API |
