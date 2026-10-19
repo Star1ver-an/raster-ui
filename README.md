@@ -1,14 +1,25 @@
 # UI Collection
 
-三套独立材质的 Web 组件库，以及统一的静态展示管理页。
+八套独立设计语言的 Web 组件库，以及统一的静态展示管理页。
 
 打开根目录 [`index.html`](index.html) 进入组件库管理：风格预览、名称 / 风格搜索、分类、收藏、卡片 / 列表、主题选择与页面地址复制。收藏与视图偏好只保存在当前浏览器；不需要后端账户。
 
 - [Raster UI](raster-ui/index.html)：灰绿像素，18 个章节。
 - [Soft UI](soft-ui/index.html)：精致新拟态，18 个章节，浅色 / 深色。
 - [Surface UI](surface-ui/index.html)：玻璃材质，18 个章节，柔雾磨砂 / 液态彩光。
+- [Minimal UI](minimal-ui/index.html)：极简主义，18 章，纸白 / 墨黑。
+- [Expressive UI](expressive-ui/index.html)：Material 表现力设计，18 章，丁香 / 深紫。
+- [Liquid UI](liquid-ui/index.html)：流动玻璃，18 章，晨光 / 暮色。
+- [Brutal UI](brutal-ui/index.html)：新粗野主义，18 章，奶油撞色 / 黑底霓色。
+- [Spatial UI](spatial-ui/index.html)：沉浸式 CSS 3D，18 章，日光 / 深空。
 
-三套库共用顶部工具栏、侧栏搜索与分组目录、介绍与快速入口、编号章节、折叠代码、页面组合、接入说明和动效实验室的文档格式。材质库保留柔和的动效，不依赖像素交互脚本。
+新增五套的[设计学习与动效安排](docs/style-studies.md)、各自目录中的 README 和 tokens.json 为固定开发资源。共享核心在 `design-kit/core.css` / `core.js`，文档层提供 18 章、代码复制、浏览器本地工作台与动效实验室。[五风格交互验证](design-kit/tests.html)检查核心边界。当前总计 8 套、144 章、15 种主题。
+
+各套库共用顶部工具栏、侧栏搜索与分组目录、介绍与快速入口、编号章节、折叠代码、页面组合、接入说明和动效实验室的文档格式。材质库保留柔和的动效，不依赖像素交互脚本。
+
+## 动效设计基准
+
+后续动效设计与评审遵循[动效设计基石](docs/motion-foundation.md)：以用户提供的《你应该知道的网页交互术语 01》为参考，明确加载、转场、共享元素、入场、滚动触发、视差和滚动驱动的设计用途，并映射到三套材质。文档区分已有实现与后续设计起点，统一反馈、连续性、节奏、动态偏好和打断规则。
 
 ## 本地预览启动
 

@@ -1,0 +1,6 @@
+/* Spatial UI 1.0.0 · 交互是空间的控制方式 */
+.uc-root[data-style=spatial]{--uc-bg:#f0f1f6;--uc-surface:#ffffff;--uc-soft:#e4e7f0;--uc-ink:#1b2032;--uc-muted:#5e667e;--uc-line:#bdc3d2;--uc-accent:#384dba;--uc-on-accent:#ffffff;--uc-danger:#a52b46;--uc-radius:18px;--uc-border:1px;--uc-shadow:0 10px 30px #05071418;--uc-fast:180ms;--uc-enter:420ms;--uc-exit:220ms;--uc-distance:24px;--uc-shared:420ms;--uc-ease:cubic-bezier(.16,1,.3,1);}
+.uc-root[data-style=spatial][data-theme=dark]{--uc-bg:#12151e;--uc-surface:#1c2130;--uc-soft:#272e40;--uc-ink:#f1f4ff;--uc-muted:#b1bbd0;--uc-line:#404b65;--uc-accent:#b9e75a;--uc-on-accent:#1d2a07;--uc-danger:#ffb6c8;}
+.uc-root[data-style=spatial]{
+.uc-card{background:linear-gradient(145deg,var(--uc-surface),var(--uc-soft));box-shadow:var(--uc-shadow)}.uc-button{border-radius:999px}.uc-card-art{background:radial-gradient(ellipse at 50% 90%,#465a9f,#171b2c);color:#c9eb88}.uc-hero-title{letter-spacing:-3px}.uc-stage-space{perspective:800px}.uc-space-grid{background-image:linear-gradient(#8c9bc71a 1px,transparent 1px),linear-gradient(90deg,#8c9bc71a 1px,transparent 1px);background-size:35px 35px}.uc-badge{font-family:Consolas,monospace;letter-spacing:.6px}
+}

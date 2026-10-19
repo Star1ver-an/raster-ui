@@ -1,0 +1,6 @@
+/* Minimal UI 1.0.0 · 取舍先于装饰 */
+.uc-root[data-style=minimal]{--uc-bg:#f7f7f5;--uc-surface:#ffffff;--uc-soft:#eeefeb;--uc-ink:#20221f;--uc-muted:#60655d;--uc-line:#d9ddd4;--uc-accent:#244c36;--uc-on-accent:#ffffff;--uc-danger:#a32932;--uc-radius:14px;--uc-border:1px;--uc-shadow:none;--uc-fast:140ms;--uc-enter:260ms;--uc-exit:160ms;--uc-distance:12px;--uc-shared:300ms;--uc-ease:cubic-bezier(.2,.75,.25,1);}
+.uc-root[data-style=minimal][data-theme=dark]{--uc-bg:#161817;--uc-surface:#222522;--uc-soft:#30342f;--uc-ink:#f1f3ed;--uc-muted:#b8c0b3;--uc-line:#444b40;--uc-accent:#b9d8a7;--uc-on-accent:#193020;--uc-danger:#ffb4ab;}
+.uc-root[data-style=minimal]{
+.uc-button{border-radius:999px}.uc-card{padding:30px}.uc-tablist{background:transparent;border-bottom:1px solid var(--uc-line);border-radius:0;padding:0;gap:20px}.uc-tablist button{border-radius:0;flex:0 1 auto;border-bottom:2px solid transparent;padding-left:4px;padding-right:4px}.uc-tablist button[aria-selected=true]{color:var(--uc-accent);background:none;border-bottom-color:var(--uc-accent)}.uc-hero-title{font-weight:580;letter-spacing:-4px}.uc-card-art{background:var(--uc-soft)}
+}

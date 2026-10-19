@@ -1,0 +1,6 @@
+/* Liquid UI 1.0.0 · 让功能层浮在内容之上 */
+.uc-root[data-style=liquid]{--uc-bg:#eaf1f6;--uc-surface:#ffffffc9;--uc-soft:#dde8f0;--uc-ink:#183247;--uc-muted:#4c6579;--uc-line:#a6bccb;--uc-accent:#235b80;--uc-on-accent:#ffffff;--uc-danger:#9f3546;--uc-radius:24px;--uc-border:1px;--uc-shadow:0 12px 32px #253a5812,inset 0 1px 0 #ffffffbb;--uc-fast:170ms;--uc-enter:300ms;--uc-exit:190ms;--uc-distance:8px;--uc-shared:360ms;--uc-ease:cubic-bezier(.22,.8,.24,1);}
+.uc-root[data-style=liquid][data-theme=dark]{--uc-bg:#142739;--uc-surface:#223c50e8;--uc-soft:#29475e;--uc-ink:#edf6ff;--uc-muted:#bdcfdf;--uc-line:#54728a;--uc-accent:#a7d7fa;--uc-on-accent:#15354b;--uc-danger:#ffbdca;}
+.uc-root[data-style=liquid]{
+.uc-card,.uc-dialog,.uc-nav,.uc-toast{backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);border-top-color:#ffffffb0}.uc-card{background:var(--uc-surface);box-shadow:var(--uc-shadow)}.uc-button{border-radius:999px;box-shadow:inset 0 1px 0 #ffffff66,0 4px 12px #18324716}.uc-nav{border:1px solid var(--uc-line)}.uc-card-art{background:linear-gradient(135deg,#a1c6dd,#ede3c9,#d1bedf)}.uc-dialog::backdrop{background:#162c4260;backdrop-filter:blur(4px)}
+}
