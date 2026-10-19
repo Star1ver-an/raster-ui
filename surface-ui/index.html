@@ -1,126 +1,18 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="glass">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Surface UI · Liquid Glass Material Lab</title>
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="themes/neumorphic.css">
-  <link rel="stylesheet" href="themes/glass.css">
-  <link rel="stylesheet" href="../material-ui.css?v=0.2.1">
-  <script defer src="../material-ui.js?v=0.2.1"></script>
-</head>
-<body data-theme="glass" data-glass-style="frosted">
-  <div class="su-shell">
-    <header class="su-top">
-      <div class="su-brand">
-        <div class="su-brand-mark" aria-hidden="true"><i></i></div>
-        <div>
-          <h1 class="su-title">Surface UI</h1>
-          <p class="su-subtitle">Material lab · 两种玻璃拟态的细节练习</p>
-        </div>
-      </div>
-      <div class="su-theme-controls">
-        <div class="su-theme-toggle" role="group" aria-label="切换界面风格">
-          <button type="button" data-theme-value="neumorphic" aria-pressed="false">新拟态</button>
-          <button type="button" data-theme-value="glass" aria-pressed="true">玻璃拟态</button>
-        </div>
-        <div class="su-glass-style-toggle" role="group" aria-label="切换玻璃拟态风格">
-          <button type="button" data-glass-style-value="clear" aria-pressed="false">液态彩光</button>
-          <button type="button" data-glass-style-value="frosted" aria-pressed="true">柔雾磨砂</button>
-        </div>
-      </div>
-    </header>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Surface UI 玻璃材质组件库：设计基础、交互控件、页面组合与柔和动效。">
+<title>Surface UI · 玻璃材质组件库</title>
+<link rel="stylesheet" href="base.css"><link rel="stylesheet" href="themes/neumorphic.css"><link rel="stylesheet" href="themes/glass.css">
+<link rel="stylesheet" href="../raster-ui/docs.css?v=audit1">
+<link rel="stylesheet" href="../material-ui.css?v=0.4.0-audit1">
+<link rel="stylesheet" href="../material-docs.css?v=0.4.0-audit1">
+<link rel="stylesheet" href="../material-refinement.css?v=0.4.0-audit1">
+<script defer src="../raster-ui/catalog-navigation.js?v=audit1"></script>
+<script defer src="../material-docs.js?v=0.4.0-audit1"></script>
+<script defer src="../material-refinement.js?v=0.4.0-audit1"></script>
+<script defer src="../material-ui.js?v=0.4.0-audit1"></script>
+</head><body data-theme="glass" data-glass-style="frosted">
+<div class="material-library rg-root catalog-app" data-material-library data-library="surface" aria-label="Surface UI 组件库"></div>
 
-    <div class="su-layout">
-      <main class="su-main">
-        <section class="su-reference-stage" aria-label="两种玻璃拟态参考">
-          <div class="su-reference-intro">
-            <div>
-              <span class="su-reference-kicker">GLASS MATERIAL STUDY · 02</span>
-              <h2 class="su-reference-title"><span class="frosted-only">Frosted Glass</span><span class="liquid-only">Liquid Glass</span></h2>
-              <p class="su-reference-copy frosted-only">奶油白底、低饱和薄荷与腮红色的漫反射。边缘只留一圈很薄的高光，让控件像被轻轻压进雾面玻璃。</p>
-              <p class="su-reference-copy liquid-only">深色背景里的彩色折射。每一枚控件都有明确的发光边缘、下方投影和一小块会流动的色彩。</p>
-            </div>
-            <div class="su-reference-meta"><span class="frosted-only">01 · SOFT FOCUS</span><span class="liquid-only">02 · CHROMATIC REFRACTION</span><span class="su-live-dot" aria-hidden="true"></span></div>
-          </div>
-
-          <article class="su-reference-artboard su-artboard--frosted frosted-only">
-            <div class="su-frosted-grid">
-              <article class="su-frosted-tile su-frosted-tile--control">
-                <div class="su-segmented" role="group" aria-label="Segmented control">
-                  <button type="button" aria-pressed="true">Segmented</button><button type="button" aria-pressed="false">Control</button>
-                </div>
-                <div class="su-frosted-divider"></div>
-                <label class="su-frosted-range"><span class="sr-only">滑杆示例</span><input type="range" value="70" aria-label="滑杆示例"></label>
-              </article>
-              <article class="su-frosted-tile su-frosted-tile--copy"><span class="su-tile-kicker">SOFT SURFACE</span><h3>Card Title</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><i class="su-frosted-orb" aria-hidden="true"></i></article>
-              <article class="su-frosted-tile su-frosted-tile--tabs"><div class="su-tab-strip" role="group" aria-label="Tabs"><button aria-pressed="true">Tab 1</button><button aria-pressed="false">Tab 2</button><button aria-pressed="false">Tab 3</button></div></article>
-              <article class="su-frosted-tile su-frosted-tile--options"><div class="su-option-strip" role="group" aria-label="Options"><button aria-pressed="true">Option A</button><button aria-pressed="false">Option B</button></div></article>
-              <article class="su-frosted-tile su-frosted-tile--switch"><span>Switch</span><button class="su-pill-switch" type="button" role="switch" aria-checked="true" aria-label="薄荷开关"><i></i></button></article>
-              <article class="su-frosted-tile su-frosted-tile--portrait"><span class="su-tile-kicker">PALE MINT</span><i class="su-frosted-orb" aria-hidden="true"></i></article>
-              <article class="su-frosted-tile su-frosted-tile--switch su-frosted-tile--blush"><span>Switch</span><button class="su-pill-switch" type="button" role="switch" aria-checked="false" aria-label="腮红开关"><i></i></button></article>
-            </div>
-          </article>
-
-          <article class="su-reference-artboard su-artboard--liquid liquid-only">
-            <div class="su-liquid-head"><div><span class="su-tile-kicker">MATERIAL PLAYGROUND</span><h3>Liquid Glass</h3><p>Search projects...</p></div><div class="su-liquid-actions"><button aria-label="通知">4</button><button aria-label="添加">+</button></div></div>
-            <div class="su-liquid-grid">
-              <button class="su-liquid-control su-liquid-control--primary">Betuitthey</button>
-              <button class="su-liquid-control su-liquid-control--cyan">Secondary</button>
-              <label class="su-liquid-search"><span>Search projects...</span><i class="su-search-dot" aria-hidden="true"></i></label>
-              <label class="su-liquid-search su-liquid-search--wide"><span>Create workspace...</span><button aria-label="搜索"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg></button></label>
-              <button class="su-liquid-control su-liquid-control--mint">fοlect <b>→</b></button>
-              <button class="su-liquid-chip su-liquid-chip--refill"><i></i> refill</button>
-              <button class="su-liquid-chip su-liquid-chip--sync"><i class="su-check-mini">✓</i> sync</button>
-              <button class="su-liquid-control su-liquid-control--neutral">modab <b>☰</b></button>
-              <button class="su-liquid-chip su-liquid-chip--wide"><i class="su-arrow-mini">→</i> swith <em></em></button>
-              <button class="su-liquid-control su-liquid-control--invite">Invite member</button>
-              <div class="su-liquid-wheel" aria-label="彩色玻璃旋钮"><i></i><b>✓</b></div>
-              <button class="su-liquid-switch" type="button" role="switch" aria-checked="true" aria-label="彩色开关"><i></i></button>
-              <article class="su-liquid-plan"><span>bl∞r<br>starter.</span><i>✓</i><strong>Upgrade plan</strong></article>
-              <button class="su-liquid-chip su-liquid-chip--close">Oθkast <b>×</b></button>
-            </div>
-          </article>
-        </section>
-
-        <section class="rg-root material-library" data-material-library aria-label="Surface UI 组件库"></section>
-
-      </main>
-    </div>
-  </div>
-<script>
-const body = document.body;
-const glassStyleButtons = document.querySelectorAll('[data-glass-style-value]');
-document.querySelectorAll('.su-theme-toggle button').forEach(button => {
-  button.addEventListener('click', () => {
-    const next = button.dataset.themeValue;
-    body.dataset.theme = next;
-    document.querySelectorAll('.su-theme-toggle button').forEach(item => {
-      item.setAttribute('aria-pressed', String(item.dataset.themeValue === next));
-    });
-    const chip = document.querySelector('.su-chip--accent');
-    if (chip) chip.textContent = next === 'glass' ? '玻璃拟态' : '新拟态';
-  });
-});
-glassStyleButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const next = button.dataset.glassStyleValue;
-    body.dataset.glassStyle = next;
-    glassStyleButtons.forEach(item => {
-      item.setAttribute('aria-pressed', String(item.dataset.glassStyleValue === next));
-    });
-  });
-});
-document.querySelectorAll('.su-segmented,.su-tab-strip,.su-option-strip').forEach(group => {
-  group.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
-    group.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-  }));
-});
-document.querySelectorAll('.su-pill-switch,.su-liquid-switch').forEach(button => button.addEventListener('click', event => {
-  const on = event.currentTarget.getAttribute('aria-checked') !== 'true';
-  event.currentTarget.setAttribute('aria-checked', String(on));
-}));
-</script>
-</body>
-</html>
+</body></html>

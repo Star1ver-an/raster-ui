@@ -1,0 +1,50 @@
+/* Shared Raster UI documentation layout; only the material layer differs. */
+.catalog-app{--rg-font:"Segoe UI","Microsoft YaHei",sans-serif;--rg-mono:"Cascadia Mono",Consolas,monospace;--rg-muted-canvas:var(--material-muted);--rg-selected:color-mix(in srgb,var(--material-accent) 14%,var(--material-surface));--rg-subtle:var(--material-surface);font:16px/1.6 var(--rg-font);min-height:100dvh}
+.material-library.catalog-app{margin:0;padding:0}.catalog-app [hidden]{display:none!important}
+.catalog-app .docs-header{background:var(--material-panel-bg);backdrop-filter:blur(24px);min-height:85px}
+.catalog-app .docs-layout{background:transparent}.catalog-app .docs-main{background:var(--material-panel-bg);border-radius:20px;box-shadow:var(--material-shadow-panel)}
+.catalog-app .docs-brand>.rg-icon{fill:none;stroke:currentColor}.catalog-app .docs-sidebar{background:transparent}
+.catalog-app .material-search{margin-bottom:8px}.catalog-app .material-search>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.catalog-app .material-search-meta{margin:0 0 16px;font-size:12px}.catalog-app .material-search-status{font-size:12px}
+.catalog-app .material-catalog{display:block;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible}
+.catalog-app .material-catalog-group{display:block;border:0;padding:16px 10px 8px;margin:0;font:11px var(--rg-mono);color:var(--material-muted)}
+.catalog-app .material-catalog a{display:flex;justify-content:space-between;margin:0;border-radius:6px;padding:9px 12px;font-size:14px;box-shadow:none;background:none;min-height:40px;border-left:3px solid transparent}
+.catalog-app .material-catalog a[aria-current="location"]{border-left-color:var(--material-accent);background:var(--rg-selected);box-shadow:none}
+.catalog-app .docs-intro{border-bottom-color:var(--material-control-line)}.catalog-app .intro-title-row h1{font-weight:700}
+.catalog-app .material-section{margin:0;padding-top:38px;padding-bottom:32px}.catalog-app .material-section .section-header{margin:0 0 20px}
+.catalog-app .material-demo{border-radius:16px}.catalog-app .material-code-block{border-radius:0;box-shadow:none}
+.catalog-app .material-code-head{flex-direction:row;padding:6px 12px;background:var(--material-surface)}
+.catalog-app .material-code-head .rg-button{box-shadow:none;min-height:36px;border-radius:4px;font-size:12px}
+.catalog-app .material-code-block pre{background:var(--material-surface);border:0;color:var(--material-ink)}
+.catalog-app .rg-tag{font-size:12px;color:var(--material-muted);border:1px solid var(--material-line);padding:4px 10px;border-radius:6px}
+.catalog-app .material-motion-select{font-size:12px;gap:8px}.catalog-app .material-motion-select .rg-select{width:104px;min-height:38px;padding:5px 10px;font-size:12px}
+.catalog-theme-controls{display:flex;gap:4px;padding:4px;background:var(--material-surface);border:1px solid var(--material-line);border-radius:12px}
+.catalog-theme{font:13px var(--rg-font);border:0;padding:9px 12px;min-height:40px;background:none;color:var(--material-muted);border-radius:8px;cursor:pointer}
+.catalog-theme[aria-pressed="true"]{background:var(--material-surface-raised);box-shadow:var(--material-shadow-card);color:var(--material-ink);font-weight:600}
+.catalog-home{font-size:13px;text-decoration:none}.catalog-home:hover{text-decoration:underline}
+.material-surface-study{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:32px 0}
+.material-surface-study>div{display:grid;place-content:center;text-align:center;min-height:170px;border-radius:24px;box-shadow:var(--material-shadow-card);background:var(--material-panel-bg);font-weight:600}
+.material-surface-study>div:nth-child(2){box-shadow:var(--material-shadow-inset)}.material-surface-study>div:nth-child(3){background:var(--material-accent);color:white}.material-surface-study small{font-size:11px;font-weight:400;opacity:.8;margin-top:8px}
+.material-experience{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}.material-experience>article,.material-experience>aside{background:var(--material-panel-bg);padding:28px;border-radius:20px;box-shadow:var(--material-shadow-card)}
+.material-experience h3{font-size:22px;margin:16px 0}.material-experience p{font-size:14px;color:var(--material-muted);margin:16px 0 24px}.material-experience .rg-check{display:flex;margin:20px 0 12px}
+.material-bloom-grid{grid-template-columns:1fr}.material-bloom-grid .material-motion-stage{min-height:200px}
+.catalog-app .material-motion-grid:not(.material-bloom-grid){grid-template-columns:repeat(2,minmax(0,1fr))}
+.catalog-app .token-value{font-size:10px;overflow-wrap:anywhere}.catalog-app .token-color{border-radius:8px 8px 0 0}.catalog-app .token{border-radius:8px;overflow:hidden}
+.catalog-app .spacing-item i{background:var(--material-accent)}.catalog-app .lab-intro{border-color:var(--material-accent)}
+.catalog-app .su-reference-stage{margin:0;padding:0;box-shadow:none;border:0;background:transparent}.catalog-app .su-reference-intro{display:none}
+.catalog-app .su-reference-artboard{padding:20px}.catalog-app .su-liquid-head h3{font-size:28px}
+.soft-root[data-theme="dark"] .catalog-app{--material-canvas:#252a32;--material-surface:#292f39;--material-surface-raised:#343b46;--material-ink:#edf0f6;--material-muted:#b5becd;--material-line:#444c59;--material-control-line:#697588;--material-accent:#a6b0f1;--material-panel-bg:linear-gradient(145deg,#303640,#292e37);--material-control-bg:linear-gradient(145deg,#343b47,#292f38);--material-shadow-panel:10px 10px 24px #1e2229,-8px -8px 20px #353c47;--material-shadow-card:6px 6px 14px #20242b,-6px -6px 14px #3a414d;--material-shadow-inset:inset 4px 4px 9px #1f232b,inset -4px -4px 9px #353c48}
+body[data-theme="glass"][data-glass-style="frosted"] .catalog-app{--material-muted:#4c645e;--material-accent:#39796c;--material-success:#337961;--material-danger:#a64656}
+body[data-theme="glass"][data-glass-style="clear"] .catalog-app{--material-accent:#6979e2;--material-muted:#dce8fa;--material-ink:#f4f8ff;--material-surface:rgba(15,33,56,.7);--material-surface-raised:rgba(42,62,88,.84);--material-panel-bg:linear-gradient(145deg,rgba(20,38,61,.92),rgba(30,53,82,.85))}
+@media(max-width:1100px){.catalog-app .docs-header-actions{gap:12px}.catalog-app .material-motion-select>span{display:none}}
+@media(max-width:760px){.catalog-app .docs-header{padding:12px 16px;min-height:112px;align-items:center}.catalog-app .docs-header-actions{flex-wrap:wrap;gap:8px}.catalog-app .docs-brand strong{font-size:18px}.catalog-app .catalog-home{display:none}.catalog-app .docs-sidebar{top:112px;background:var(--material-surface-raised);backdrop-filter:blur(24px)}.catalog-app .material-catalog{display:flex;overflow:auto;gap:4px}.catalog-app .material-catalog-group{display:none}.catalog-app .material-catalog a{border-left:0;border-bottom:2px solid transparent;flex-shrink:0;padding:8px 10px;min-height:44px}.catalog-app .material-catalog a[aria-current="location"]{border-bottom-color:var(--material-accent);border-left:0}.catalog-app .material-search-meta{display:none}.catalog-app .docs-main{border-radius:0;box-shadow:none}.material-surface-study,.material-experience{grid-template-columns:1fr}.catalog-app .material-motion-grid:not(.material-bloom-grid){grid-template-columns:1fr}.catalog-app .material-section{scroll-margin-top:0}.catalog-app .su-frosted-grid{grid-template-columns:1fr}.catalog-app .su-liquid-grid{grid-template-columns:1fr}.catalog-app .su-liquid-grid>*{grid-column:auto!important}.catalog-app .material-code-head{align-items:center}.catalog-theme{font-size:12px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){.catalog-app *{scroll-behavior:auto!important}}
+
+.catalog-app .rg-icon{fill:none}.catalog-app .docs-sidebar{top:var(--catalog-header-height,85px);height:calc(100dvh - var(--catalog-header-height,85px))}
+html{scroll-padding-top:calc(var(--catalog-navigation-offset,85px) + 16px)}
+.catalog-app .material-section{scroll-margin-top:0}
+@media(max-width:760px){.catalog-app .docs-header{position:static}.catalog-app .docs-sidebar{top:0;height:auto}}
+
+.catalog-app input::placeholder,.catalog-app textarea::placeholder{color:var(--material-muted);opacity:1}
+
+.catalog-app .material-dialog .rg-dialog__header{display:flex;align-items:center;justify-content:space-between;gap:16px}.catalog-app .material-dialog .rg-dialog__title{font-size:20px;margin:0}.catalog-app .material-dialog p{font-size:14px}.catalog-app #material-copy-dialog textarea{min-height:220px;font:12px/1.7 var(--rg-mono)}

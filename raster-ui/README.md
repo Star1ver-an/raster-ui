@@ -1,8 +1,8 @@
 # Raster UI · v0.4.0
 
-从 `raster-grid.html` 的灰绿像素界面提炼的 Web 组件基础库。本版强化层级与密度，保留灰绿、整数格点和局部像素标记；本目录不覆盖原页面。
+从 `raster-grid.html` 的灰绿像素界面提炼的 Web 组件基础库。本版强化层级与密度，保留灰绿、整数格点和局部像素标记；组件目录、工作台与原型已合并为一个入口。
 
-双击 `index.html` 查看组件目录，双击 `examples/workspace.html` 查看实际组合页面。所有文件均在本地，无网络字体、第三方脚本或安装步骤。
+双击 `index.html` 查看完整组件库，目录中的“交互工作台”直接展示组合页面。`examples/workspace.html` 和根目录的 `raster-grid.html` 只做兼容跳转。所有文件均在本地，无网络字体、第三方脚本或安装步骤。
 
 ## v0.4 的使用顺序
 
@@ -25,7 +25,8 @@
 | `tests/motion.html` | 在浏览器运行交互边界验证 |
 | `tests/regression.html` | v0.4 的嵌套控件、动态初始化、通知与主题来源回归 |
 | `tests/particles.html` | 验证粒子绘制、范围、回收与减少动态模式 |
-| `examples/workspace.html` | 仅引用核心 CSS/JS 的组合示例 |
+| `workspace.js` / `workspace.css` | 同页工作台的唯一模板、交互与组合布局；不含重复组件样式 |
+| `examples/workspace.html` | 兼容跳转到 `index.html#composition` |
 
 ## 接入
 
@@ -133,7 +134,7 @@ finally { RasterUI.setLoading(button, false); }
 
 ### 原位表单验证
 
-`examples/workspace.html` 展示页面层的完整实现，核心库不代替业务验证。示例表单使用 `novalidate` 关闭浏览器自动浮层，同时保留 `required`、`maxlength`、`validity` 和 `checkValidity()`：
+`index.html#composition`（源码 `workspace.js`）展示页面层的完整实现，核心库不代替业务验证。示例表单使用 `novalidate` 关闭浏览器自动浮层，同时保留 `required`、`maxlength`、`validity` 和 `checkValidity()`：
 
 - 提交时检查所有字段，名称使用 `setCustomValidity()` 拒绝纯空格；不调用 `reportValidity()`。
 - 错误通过字段下方持久文字、`aria-describedby` 和 `aria-invalid` 表达，聚焦第一个无效字段。
@@ -237,3 +238,11 @@ RasterUI.particles(newItem, { effect: 'assemble', intensity: 'soft' });
 ## 本版边界
 
 这是可直接复用的 Web 组件基础库与文档，并非已经完成全部终端适配的设计系统。组合页数据仅用于演示，刷新恢复；不包含账户、后端、路由框架、数据同步、复杂表格和原生端实现。未来业务确定后，再增加所需组件与流程。
+
+## 工作台整合
+
+`index.html` 是唯一 UI 入口，不再用 iframe 加载另一份页面。工作台复用核心控件，组合层只有 `workspace.js` 和 `workspace.css`；其表单、卡片、通知和弹窗调用同一套 RasterUI API。
+
+原型的概览、资源、状态修改、归档与移出归档、项目类型，以及点阵字标 / 数字已迁入。保留 `raster-grid.projects.v1` 存储键以承接旧项目数据；存储不可用时会显示提示并保留当前页数据。项目会在刷新后恢复；筛选、显示方式和紧凑间距为当前页状态。灰度与动态偏好统一使用组件库已有设置。
+
+`RasterWorkspace.bitmap(text, label)` 返回点阵 SVG（支持 RASTER GRID 字母与数字），`RasterWorkspace.template` 提供一份工作台模板，`RasterWorkspace.mount(root)` 在 `RasterUI.init(root)` 后挂载工作台行为。模板使用固定 ID，每页仅挂载一次。

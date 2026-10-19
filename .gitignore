@@ -13,3 +13,7 @@ Thumbs.db
 
 # Local material UI review capture
 /material-ui-preview.png
+
+# Generated static exhibition bundle
+/dist/
+/UI-Collection-static.zip

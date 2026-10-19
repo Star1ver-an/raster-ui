@@ -177,7 +177,7 @@
 
     <section class="material-section" id="material-feedback" aria-labelledby="material-feedback-title">
       <div class="material-section-heading"><span class="material-section-number">12</span><div><h3 id="material-feedback-title">弹窗与轻提示 <small>DIALOG / TOAST</small></h3><p>弹窗管理焦点，Esc 可以关闭；通知提供成功和错误两种语义，并保留退出路径。</p></div></div>
-      <div class="material-demo"><p class="material-demo-label">实际交互</p><div class="material-row"><button type="button" class="rg-button material-button--primary" data-material-entry-open>打开表单弹窗</button><button type="button" class="rg-button rg-button--secondary" data-material-toast>显示成功提示</button><button type="button" class="rg-button rg-button--secondary" data-material-toast-error>显示错误提示</button></div><p class="material-token-note">默认显示 2.6 秒；焦点、状态和文字始终同时表达结果。</p></div>
+      <div class="material-demo"><p class="material-demo-label">实际交互</p><div class="material-row"><button type="button" class="rg-button material-button--primary" data-material-entry-open>打开表单弹窗</button><button type="button" class="rg-button rg-button--secondary" data-material-toast>显示成功提示</button><button type="button" class="rg-button rg-button--secondary" data-material-toast-error>显示错误提示</button></div><p class="material-token-note">成功提示显示 4.5 秒，聚焦或悬停时暂停；错误提示保留到手动关闭。</p></div>
           <div class="material-code-area"><div class="material-code-block"><div class="material-code-head"><span>HTML 用法</span><button type="button" class="rg-button rg-button--quiet rg-button--sm" data-material-copy-code>复制</button></div><pre tabindex="0"><code>&lt;button data-material-entry-open&gt;打开表单弹窗&lt;/button&gt;
 &lt;button data-material-toast&gt;成功提示&lt;/button&gt;
 &lt;button data-material-toast-error&gt;错误提示&lt;/button&gt;</code></pre></div></div>
@@ -190,7 +190,7 @@
         <article class="material-card"><div class="material-card-top"><span class="material-tag">健康度</span><span class="material-status material-status--success">优</span></div><strong>8.8 / 10</strong><p>选中态同时使用边界、表面和文字。</p></article>
         <article class="material-card material-card--interactive" tabindex="0" data-material-reveal><div class="material-card-top"><span class="material-tag">速度</span><span class="material-status material-status--warning">关注</span></div><strong>24.6 秒</strong><p>点击卡片触发一次短促的入场反馈。</p></article>
       </div>
-      <div class="material-list" aria-label="最近活动"><article><span class="material-list-icon">${icon('doc')}</span><div><strong>设计规范评审</strong><small>今天 15:30 · 软质材料室</small></div><span class="material-status material-status--success">已确认</span></article><article><span class="material-list-icon">${icon('plus')}</span><div><strong>新增控件原型</strong><small>明天 09:00 · 可交互</small></div><span class="material-status material-status--warning">待同步</span></article></div><div class="material-demo material-composition-demo"><div class="material-composition-toolbar"><div class="rg-segmented" data-material-view role="group" aria-label="示例预览宽度"><button type="button" class="rg-segment" data-value="desktop" aria-pressed="true">桌面</button><button type="button" class="rg-segment" data-value="mobile" aria-pressed="false">窄屏 / 390</button></div><span class="material-readout">响应式组合示例</span></div><div class="material-example-shell" data-material-example><div class="material-example-header"><span>Workspace</span><span class="material-status material-status--success">已同步</span></div><div class="material-example-body"><div><strong>本周项目</strong><p>4 个项目正在推进。</p></div><button type="button" class="rg-button material-button--primary" data-material-feedback>打开工作区</button></div><div class="material-example-list"><span>${icon('folder')}设计系统 <small>进行中</small></span><span>${icon('web')}产品网站 <small>待开始</small></span></div></div></div>
+      <div class="material-list" aria-label="最近活动"><article><span class="material-list-icon">${icon('doc')}</span><div><strong>设计规范评审</strong><small>今天 15:30 · 软质材料室</small></div><span class="material-status material-status--success">已确认</span></article><article><span class="material-list-icon">${icon('plus')}</span><div><strong>新增控件原型</strong><small>明天 09:00 · 可交互</small></div><span class="material-status material-status--warning">待同步</span></article></div><div class="material-demo material-composition-demo"><div class="material-composition-toolbar"><div class="rg-segmented" data-material-view role="group" aria-label="示例预览宽度"><button type="button" class="rg-segment" data-value="desktop" aria-pressed="true">桌面</button><button type="button" class="rg-segment" data-value="mobile" aria-pressed="false">窄屏 / 390</button></div><span class="material-readout">响应式组合示例</span></div><div class="material-example-shell" data-material-example><div class="material-example-header"><span>Workspace</span><span class="material-status material-status--success">已同步</span></div><div class="material-example-body"><div><strong>本周项目</strong><p>4 个项目正在推进。</p></div><button type="button" class="rg-button material-button--primary" data-material-dialog-open>查看材质说明</button></div><div class="material-example-list"><span>${icon('folder')}设计系统 <small>进行中</small></span><span>${icon('web')}产品网站 <small>待开始</small></span></div></div></div>
           <div class="material-code-area"><div class="material-code-block"><div class="material-code-head"><span>HTML 用法</span><button type="button" class="rg-button rg-button--quiet rg-button--sm" data-material-copy-code>复制</button></div><pre tabindex="0"><code>&lt;div class=&quot;material-example-shell&quot; data-material-example&gt;
   &lt;div class=&quot;material-example-header&quot;&gt;&lt;span&gt;Workspace&lt;/span&gt;&lt;span class=&quot;material-status&quot;&gt;已同步&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre></div></div>
@@ -218,7 +218,7 @@
 </section>
 
     <dialog class="rg-dialog material-dialog" id="material-dialog" aria-labelledby="material-dialog-title"><header class="rg-dialog__header"><h3 class="rg-dialog__title" id="material-dialog-title">材质说明</h3><button type="button" class="rg-button rg-button--quiet rg-button--icon" data-material-dialog-close aria-label="关闭">${icon('close')}</button></header><div class="rg-dialog__body"><p>这套页面共用组件语义、焦点顺序和动效节奏，主题只负责定义表面、边界、阴影与颜色。</p><div class="material-dialog-rule"><span>输入与按钮保持 44px 以上触控区域</span><span>减少动态效果会停止位移和光晕</span><span>反馈通过状态和文字同时表达</span></div><div class="rg-dialog__footer"><button type="button" class="rg-button rg-button--secondary" data-material-dialog-close>回到组件</button></div></div></dialog>
-    <dialog class="rg-dialog material-dialog" id="material-entry-dialog" aria-labelledby="material-entry-title"><header class="rg-dialog__header"><h3 class="rg-dialog__title" id="material-entry-title">新建条目</h3><button type="button" class="rg-button rg-button--quiet rg-button--icon" data-material-entry-close aria-label="关闭弹窗">${icon('close')}</button></header><form class="rg-dialog__body" data-material-entry-form novalidate><label class="rg-field"><span class="rg-label">条目名称</span><input class="rg-input" name="name" required maxlength="30" placeholder="输入名称" aria-describedby="material-entry-message"><span class="rg-help" id="material-entry-message" aria-live="polite">必填，最多 30 个字符。</span></label><p class="material-token-note">这里演示表单弹窗，不会创建真实数据。</p><div class="rg-dialog__footer"><button type="button" class="rg-button rg-button--secondary" data-material-entry-close>取消</button><button class="rg-button material-button--primary" type="submit">完成演示</button></div></form></dialog>
+    <dialog class="rg-dialog material-dialog" id="material-entry-dialog" aria-labelledby="material-entry-title"><header class="rg-dialog__header"><h3 class="rg-dialog__title" id="material-entry-title">新建条目</h3><button type="button" class="rg-button rg-button--quiet rg-button--icon" data-material-entry-close aria-label="关闭弹窗">${icon('close')}</button></header><form class="rg-dialog__body" data-material-entry-form novalidate><label class="rg-field"><span class="rg-label">条目名称</span><input class="rg-input" name="name" required maxlength="30" autofocus placeholder="输入名称" aria-describedby="material-entry-message"><span class="rg-help" id="material-entry-message" aria-live="polite">必填，最多 30 个字符。</span></label><p class="material-token-note">这里演示表单弹窗，不会创建真实数据。</p><div class="rg-dialog__footer"><button type="button" class="rg-button rg-button--secondary" data-material-entry-close>取消</button><button class="rg-button material-button--primary" type="submit">完成演示</button></div></form></dialog>
   `;
 
   let motionPreference = 'auto';
@@ -239,13 +239,33 @@
   function materialToast(root, message, variant = 'success') {
     let region = root.querySelector('.material-toast-region');
     if (!region) { region = document.createElement('div'); region.className = 'material-toast-region'; region.setAttribute('role', 'status'); region.setAttribute('aria-live', 'polite'); root.append(region); }
-    const toast = document.createElement('div'); toast.className = `material-toast material-toast--${variant}`; toast.textContent = message; region.append(toast);
-    requestAnimationFrame(() => toast.classList.add('is-visible'));
-    window.setTimeout(async () => { toast.classList.remove('is-visible'); await materialAnimate(toast, [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-5px)' }], { duration: 180, easing: 'ease-in' }); toast.remove(); }, 2600);
+    // Repeated clicks should not fill the viewport with identical messages.
+    const existing=[...region.children].find(item=>item.dataset.message===message && item.dataset.variant===variant && !item.dataset.closing);
+    if(existing) return existing;
+    const origin=document.activeElement;
+    const toast=document.createElement('div');toast.className=`material-toast material-toast--${variant}`;toast.dataset.message=message;toast.dataset.variant=variant;
+    const text=document.createElement('span');text.textContent=message;
+    const close=document.createElement('button');close.type='button';close.className='material-toast-dismiss';close.setAttribute('aria-label','关闭提示');close.innerHTML=icon('close');
+    toast.append(text,close);region.append(toast);
+    let timer,remaining=4500,started=0;
+    const stop=()=>{if(timer){clearTimeout(timer);remaining=Math.max(0,remaining-(performance.now()-started));timer=null;}};
+    const dismiss=async()=>{
+      if(toast.dataset.closing)return;
+      toast.dataset.closing='true';stop();const restore=toast.contains(document.activeElement);
+      toast.classList.remove('is-visible');
+      await materialAnimate(toast,[{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-5px)'}],{duration:180,easing:'ease-in'});
+      toast.remove();if(!region.childElementCount)region.remove();
+      if(restore && origin?.isConnected)origin.focus({preventScroll:true});
+    };
+    const resume=()=>{if(variant==='error'||toast.dataset.closing||toast.matches(':hover')||toast.contains(document.activeElement)||timer)return;started=performance.now();timer=setTimeout(dismiss,remaining);};
+    close.addEventListener('click',dismiss);
+    toast.addEventListener('mouseenter',stop);toast.addEventListener('mouseleave',resume);
+    toast.addEventListener('focusin',stop);toast.addEventListener('focusout',()=>queueMicrotask(resume));
+    requestAnimationFrame(()=>toast.classList.add('is-visible'));resume();return toast;
   }
   function materialFeedback(button) {
     if (!button || prefersReducedMotion()) return;
-    materialAnimate(button, [{ transform: 'translateY(0) scale(1)', filter: 'brightness(1)' }, { transform: 'translateY(1px) scale(.975)', filter: 'brightness(.96)', offset: .45 }, { transform: 'translateY(0) scale(1)', filter: 'brightness(1)' }], { duration: 260, easing: 'cubic-bezier(.22,.8,.24,1)' });
+    materialAnimate(button, [{ transform: 'translateY(0)' }, { transform: 'translateY(1px)', offset: .35 }, { transform: 'translateY(0)' }], { duration: 170, easing: 'ease-out' });
   }
   function materialBloom(button) {
     if (!button) return;
@@ -255,8 +275,9 @@
     if (prefersReducedMotion()) { bloom.remove(); return; }
     materialAnimate(bloom, [{ opacity: 0, transform: 'translate(-50%,-50%) scale(.55)' }, { opacity: .62, transform: 'translate(-50%,-50%) scale(1)', offset: .42 }, { opacity: 0, transform: 'translate(-50%,-50%) scale(1.3)' }], { duration: 560, easing: 'cubic-bezier(.22,.8,.24,1)' }).then(() => bloom.remove());
   }
-  function openMaterialDialog(dialog) { if (!dialog || dialog.open) return; dialog.showModal(); requestAnimationFrame(() => dialog.classList.add('is-material-open')); }
-  async function closeMaterialDialog(dialog) { if (!dialog?.open) return; dialog.classList.remove('is-material-open'); await materialAnimate(dialog, [{ opacity: 1, transform: 'translateY(0) scale(1)' }, { opacity: 0, transform: 'translateY(8px) scale(.985)' }], { duration: 220, easing: 'ease-in' }); dialog.close(); }
+  const dialogOpeners=new WeakMap();
+  function openMaterialDialog(dialog) { if (!dialog || dialog.open) return; dialogOpeners.set(dialog,document.activeElement); dialog.showModal(); requestAnimationFrame(() => dialog.classList.add('is-material-open')); }
+  async function closeMaterialDialog(dialog) { if (!dialog?.open) return; dialog.classList.remove('is-material-open'); await materialAnimate(dialog, [{ opacity: 1, transform: 'translateY(0) scale(1)' }, { opacity: 0, transform: 'translateY(8px) scale(.985)' }], { duration: 220, easing: 'ease-in' }); dialog.close(); dialogOpeners.get(dialog)?.focus(); }
 
   function moveMaterialFocus(items, current, delta, wrap = true) {
     const enabled = items.filter(item => !item.disabled && !item.hidden);
@@ -271,15 +292,20 @@
   function mount(root) {
     if (!root || root.dataset.materialMounted === 'true') return root;
     root.innerHTML = template;
+    global.MaterialDocs?.prepare(root, icon);
     root.dataset.materialMounted = 'true';
+    root.insertAdjacentHTML('beforeend', '<dialog class="rg-dialog material-dialog" id="material-copy-dialog" aria-labelledby="material-copy-title"><header class="rg-dialog__header"><h2 class="rg-dialog__title" id="material-copy-title">复制用法</h2><button type="button" class="rg-button rg-button--quiet" data-material-copy-close aria-label="关闭复制窗口">关闭</button></header><div class="rg-dialog__body"><p>浏览器未允许自动复制。下方代码已选中，可按 Ctrl/Cmd + C 复制。</p><textarea class="rg-textarea" readonly aria-label="待复制的代码" spellcheck="false"></textarea></div></dialog>');
+    const copyDialog=root.querySelector('#material-copy-dialog');
+    async function copyMaterialText(text,message='代码已复制') { try { await navigator.clipboard.writeText(text);materialToast(root,message); } catch { copyDialog.querySelector('textarea').value=text;openMaterialDialog(copyDialog);copyDialog.querySelector('textarea').focus();copyDialog.querySelector('textarea').select(); } }
+    root.querySelector('[data-material-copy-close]').addEventListener('click',()=>closeMaterialDialog(copyDialog));
     root.querySelectorAll('[data-material-toast]').forEach(button => button.addEventListener('click', () => { materialToast(root, '材质反馈已触发'); materialFeedback(button); }));
     root.querySelectorAll('[data-material-toast-error]').forEach(button => button.addEventListener('click', () => { materialToast(root, '暂时无法保存，请稍后重试。', 'error'); materialFeedback(button); }));
-    root.querySelectorAll('[data-material-copy]').forEach(button => button.addEventListener('click', async () => { const usage = `<svg class="rg-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>`; try { await navigator.clipboard.writeText(usage); materialToast(root, `${button.dataset.materialCopy} 图标用法已复制`); } catch { materialToast(root, '浏览器未允许自动复制', 'error'); } materialFeedback(button); }));
-    root.querySelectorAll('[data-material-loading]').forEach(button => button.addEventListener('click', () => { if (button.disabled) return; button.disabled = true; button.classList.add('is-material-loading'); button.textContent = '处理中…'; window.setTimeout(() => { button.disabled = false; button.classList.remove('is-material-loading'); button.textContent = '试试加载'; materialToast(root, '加载完成'); }, 900); }));
+    root.querySelectorAll('[data-material-copy]').forEach(button => button.addEventListener('click', async () => { const usage = icon(button.dataset.materialCopy); await copyMaterialText(usage, `${button.dataset.materialCopy} 图标用法已复制`); materialFeedback(button); }));
+    root.querySelectorAll('[data-material-loading]').forEach(button => button.addEventListener('click', () => { if (button.disabled) return; button.disabled = true; button.setAttribute('aria-busy','true'); button.classList.add('is-material-loading'); button.textContent = '处理中…'; window.setTimeout(() => { button.disabled = false; button.removeAttribute('aria-busy'); button.classList.remove('is-material-loading'); button.textContent = '试试加载'; materialToast(root, '加载完成'); }, 900); }));
     root.querySelectorAll('[data-material-feedback]').forEach(button => button.addEventListener('click', () => materialFeedback(button)));
     root.querySelectorAll('[data-material-switch]').forEach(button => button.addEventListener('click', event => { const next = event.currentTarget.getAttribute('aria-checked') !== 'true'; event.currentTarget.setAttribute('aria-checked', String(next)); materialFeedback(event.currentTarget); }));
     root.querySelectorAll('[data-material-indeterminate]').forEach(input => { input.indeterminate = true; });
-    root.querySelectorAll('[data-rg-segmented]').forEach(group => group.querySelectorAll('.rg-segment').forEach(button => button.addEventListener('click', () => { group.querySelectorAll('.rg-segment').forEach(item => item.setAttribute('aria-pressed', String(item === button))); materialFeedback(button); })));
+    root.querySelectorAll('[data-rg-segmented],[data-material-filter]').forEach(group => group.querySelectorAll('.rg-segment').forEach(button => button.addEventListener('click', () => { group.querySelectorAll('.rg-segment').forEach(item => item.setAttribute('aria-pressed', String(item === button))); materialFeedback(button); })));
     root.querySelectorAll('[data-material-filter]').forEach(group => group.querySelectorAll('.rg-segment').forEach(button => button.addEventListener('click', () => { const output = root.querySelector('[data-material-filter-output]'); if (output) output.textContent = `当前筛选：${button.textContent.trim()} / ${button.dataset.value}`; })));
     root.querySelectorAll('.rg-segmented').forEach(group => group.addEventListener('keydown', event => {
       const button = event.target.closest('.rg-segment');
@@ -290,7 +316,8 @@
       if (event.key === 'Home') { event.preventDefault(); moveMaterialFocus(buttons, button, -buttons.length, false)?.click(); }
       if (event.key === 'End') { event.preventDefault(); moveMaterialFocus(buttons, button, buttons.length, false)?.click(); }
     }));
-    root.querySelectorAll('[data-material-tabs]').forEach(tabs => tabs.querySelectorAll('[data-material-tab]').forEach(tab => tab.addEventListener('click', () => { if (tab.disabled) return; tabs.querySelectorAll('[data-material-tab]').forEach(item => item.setAttribute('aria-selected', String(item === tab))); tabs.querySelectorAll('[role="tabpanel"]').forEach(panel => { panel.hidden = panel.id !== tab.dataset.materialTab; }); materialFeedback(tab); })));
+    root.querySelectorAll('[data-material-tabs]').forEach(tabs => tabs.querySelectorAll('[data-material-tab]').forEach(tab => tab.addEventListener('click', () => { if (tab.disabled) return; tabs.querySelectorAll('[data-material-tab]').forEach(item => {item.setAttribute('aria-selected', String(item === tab));item.tabIndex=item===tab?0:-1;}); tabs.querySelectorAll('[role="tabpanel"]').forEach(panel => { panel.hidden = panel.id !== tab.dataset.materialTab; }); materialFeedback(tab); })));
+    root.querySelectorAll('[data-material-tab]').forEach(tab=>{tab.tabIndex=tab.getAttribute('aria-selected')==='true'?0:-1;});
     root.querySelectorAll('[data-material-tabs]').forEach(tabs => tabs.addEventListener('keydown', event => {
       const tab = event.target.closest('[data-material-tab]');
       if (!tab) return;
@@ -301,8 +328,27 @@
       if (event.key === 'End') { event.preventDefault(); moveMaterialFocus(tabsAll, tab, tabsAll.length, false)?.click(); }
     }));
     root.querySelectorAll('[data-material-nav]').forEach(nav => nav.addEventListener('click', event => { const button = event.target.closest('button'); if (!button) return; nav.querySelectorAll('button').forEach(item => item.removeAttribute('aria-current')); button.setAttribute('aria-current', 'page'); const output = root.querySelector('[data-material-nav-output]'); if (output) output.textContent = `当前导航：${button.textContent.trim()}`; materialFeedback(button); }));
-    root.querySelectorAll('[data-material-card]').forEach(card => { const select = () => { root.querySelectorAll('[data-material-card]').forEach(item => item.classList.toggle('material-card--selected', item === card)); materialFeedback(card); }; card.addEventListener('click', select); card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(); } }); });
-    root.querySelector('[data-material-validation]')?.addEventListener('submit', event => { event.preventDefault(); const form = event.currentTarget; const input = form.elements.entry; const message = form.querySelector('[aria-live]'); const valid = input.value.trim().length > 0; input.setAttribute('aria-invalid', String(!valid)); if (message) message.textContent = valid ? '检查通过，可以继续。' : '请输入名称后再继续。'; if (!valid) input.focus(); else materialToast(root, '条目名称检查通过'); });
+    root.querySelectorAll('[data-material-card]').forEach(card => {
+      card.setAttribute('role','button');card.setAttribute('aria-pressed',String(card.classList.contains('material-card--selected')));
+      const select=()=>{root.querySelectorAll('[data-material-card]').forEach(item=>{item.classList.toggle('material-card--selected',item===card);item.setAttribute('aria-pressed',String(item===card));});materialFeedback(card);};
+      card.addEventListener('click',select);
+      card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();select();}});
+    });
+    root.querySelectorAll('[data-material-reveal]:not(button)').forEach(trigger=>{
+      trigger.setAttribute('role','button');trigger.tabIndex=0;
+      trigger.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();trigger.click();}});
+    });
+    const validationForm=root.querySelector('[data-material-validation]');
+    const validateInline=()=>{
+      const input=validationForm.elements.entry,valid=Boolean(input.value.trim());
+      input.setAttribute('aria-invalid',String(!valid));
+      const message=validationForm.querySelector('[aria-live]');
+      message.textContent=valid?'检查通过，可以继续。':'请输入名称，不能只填空格。';
+      message.classList.toggle('material-help--error',!valid);
+      return valid;
+    };
+    validationForm.addEventListener('submit',event=>{event.preventDefault();if(!validateInline())validationForm.elements.entry.focus();else materialToast(root,'条目名称检查通过');});
+    validationForm.elements.entry.addEventListener('input',()=>{if(validationForm.elements.entry.hasAttribute('aria-invalid'))validateInline();});
     root.querySelectorAll('[data-material-view] .rg-segment').forEach(button => button.addEventListener('click', () => { const group = button.closest('[data-material-view]'); group.querySelectorAll('.rg-segment').forEach(item => item.setAttribute('aria-pressed', String(item === button))); root.querySelector('[data-material-example]')?.classList.toggle('is-material-mobile', button.dataset.value === 'mobile'); materialFeedback(button); }));
     root.querySelectorAll('[data-material-reveal]').forEach(trigger => trigger.addEventListener('click', () => { const target = root.querySelector('[data-material-reveal-stage]'); if (target) { target.classList.remove('is-material-revealing'); void target.offsetWidth; target.classList.add('is-material-revealing'); materialAnimate(target, [{ opacity: .62, transform: 'translateY(8px) scale(.985)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], { duration: 320, easing: 'cubic-bezier(.22,.8,.24,1)' }); } }));
     root.querySelector('[data-material-bloom]')?.addEventListener('click', event => { materialBloom(event.currentTarget); materialFeedback(event.currentTarget); });
@@ -312,18 +358,20 @@
     root.querySelector('[data-material-entry-open]')?.addEventListener('click', () => openMaterialDialog(root.querySelector('#material-entry-dialog')));
     root.querySelectorAll('[data-material-entry-close]').forEach(button => button.addEventListener('click', () => closeMaterialDialog(button.closest('dialog'))));
     root.querySelector('#material-entry-dialog')?.addEventListener('click', event => { const dialog = event.currentTarget; if (event.target === dialog) closeMaterialDialog(dialog); });
-    root.querySelector('[data-material-entry-form]')?.addEventListener('submit', event => { event.preventDefault(); const form = event.currentTarget; const input = form.elements.name; if (!input.value.trim()) { input.setAttribute('aria-invalid', 'true'); input.focus(); return; } closeMaterialDialog(form.closest('dialog')); materialToast(root, '演示条目已创建'); form.reset(); });
+    const entryForm=root.querySelector('[data-material-entry-form]');
+    let completingEntry=false;
+    const validateEntry=()=>{const input=entryForm.elements.name;input.setCustomValidity(input.value.trim()?'':'请输入名称，不能只填空格。');const valid=input.validity.valid;input.setAttribute('aria-invalid',String(!valid));entryForm.querySelector('#material-entry-message').textContent=valid?'必填，最多 30 个字符。':input.validationMessage;return valid;};
+    entryForm.addEventListener('invalid',event=>event.preventDefault(),true);
+    entryForm.elements.name.addEventListener('input',()=>{if(entryForm.elements.name.hasAttribute('aria-invalid'))validateEntry();});
+    entryForm.addEventListener('submit',async event=>{event.preventDefault();if(completingEntry)return;if(!validateEntry()){entryForm.elements.name.focus();return;}completingEntry=true;try{await closeMaterialDialog(entryForm.closest('dialog'));materialToast(root,'弹窗演示完成，没有创建真实数据。');entryForm.reset();entryForm.elements.name.removeAttribute('aria-invalid');entryForm.querySelector('#material-entry-message').textContent='必填，最多 30 个字符。';}finally{completingEntry=false;}});
     root.querySelector('[data-material-motion]')?.addEventListener('change', event => setMotion(event.target.value));
+    root.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('cancel',event=>{event.preventDefault();closeMaterialDialog(dialog);}));
     const motion = setMotion(motionPreference); if (root.querySelector('[data-material-motion]')) root.querySelector('[data-material-motion]').value = motion.preference;
-    if ('IntersectionObserver' in global) {
-      const catalogLinks = [...root.querySelectorAll('[data-material-catalog-link]')];
-      const materialCatalogObserver = new IntersectionObserver(entries => {
-        const visible = entries.filter(entry => entry.isIntersecting && !entry.target.hidden).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (!visible.length) return;
-        catalogLinks.forEach(link => { if (link.getAttribute('href') === `#${visible[0].target.id}`) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
-      }, { rootMargin: '-12% 0px -68% 0px' });
-      catalogLinks.map(link => root.querySelector(link.getAttribute('href'))).filter(Boolean).forEach(section => materialCatalogObserver.observe(section));
-    }
+    global.CatalogNavigation?.install({
+      links:root.querySelectorAll('[data-material-catalog-link]'),
+      sections:root.querySelectorAll('.doc-section'),
+      header:root.querySelector('.docs-header'),sidebar:root.querySelector('.docs-sidebar')
+    });
     const searchInput = root.querySelector('[data-material-search]');
     const searchReset = root.querySelector('[data-material-search-reset]');
     const searchStatus = root.querySelector('[data-material-search-status]');
@@ -335,8 +383,8 @@
       let count = 0;
       catalogLinks.forEach(link => { const match = !term || `${link.textContent} ${link.dataset.search}`.toLowerCase().includes(term); link.hidden = !match; if (match) count++; });
       catalogSections.forEach(section => { const link = catalogLinks.find(item => item.getAttribute('href') === `#${section.id}`); section.hidden = term && (!link || link.hidden); });
-      root.querySelectorAll('.material-catalog-group').forEach(group => { group.hidden = ![...group.querySelectorAll('[data-material-catalog-link]')].some(link => !link.hidden); });
-      searchStatus.textContent = term ? `找到 ${count} 个章节` : '15 个章节全部显示';
+      root.querySelectorAll('.material-catalog-group').forEach(group => { let next=group.nextElementSibling, visible=false; while(next && !next.classList.contains('material-catalog-group')){if(next.hasAttribute('data-material-catalog-link') && !next.hidden)visible=true;next=next.nextElementSibling;} group.hidden=global.MaterialDocs ? !visible : ![...group.querySelectorAll('[data-material-catalog-link]')].some(link => !link.hidden); });
+      searchStatus.textContent = term ? `找到 ${count} 个章节` : `${catalogSections.length} 个章节全部显示`;
       searchReset.hidden = !term;
       searchEmpty.hidden = count !== 0;
     };
@@ -344,12 +392,15 @@
     searchReset.addEventListener('click', () => { searchInput.value = ''; applyMaterialSearch(); searchInput.focus(); });
     root.querySelectorAll('[data-material-copy-code]').forEach(button => button.addEventListener('click', async () => {
       const code = button.closest('.material-code-block')?.querySelector('code')?.textContent || '';
-      try { await navigator.clipboard.writeText(code); materialToast(root, '代码已复制'); } catch { materialToast(root, '浏览器未允许自动复制', 'error'); }
+      await copyMaterialText(code);
     }));
+    applyMaterialSearch();
+    const revealHash=()=>{const target=document.getElementById(location.hash.slice(1));if(target && root.contains(target)){searchInput.value='';applyMaterialSearch();requestAnimationFrame(()=>target.scrollIntoView());}};
+    window.addEventListener('hashchange',revealHash);revealHash();
     return root;
   }
 
-  global.MaterialUI = Object.freeze({ version: '0.2.1', mount });
+  global.MaterialUI = Object.freeze({ version: '0.4.0', mount });
   function boot() { document.querySelectorAll('[data-material-library]').forEach(mount); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true }); else boot();
 })(window);

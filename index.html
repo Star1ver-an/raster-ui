@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f5f1">
+  <meta name="description" content="UI Collection：像素、新拟态与玻璃材质组件库的统一展示与管理入口。">
+  <title>UI Collection · 组件库管理</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23232938'/%3E%3Cpath d='M8 8h6v6H8zm10 0h6v6h-6zM8 18h6v6H8zm10 0h6v6h-6z' fill='%23f0a583'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="collection.css?v=audit1">
+  <script defer src="collection.js?v=audit1"></script>
+</head>
+<body>
+<a class="skip" href="#collection-main">跳至组件库内容</a>
+<aside class="collection-sidebar">
+  <a class="collection-brand" href="#libraries"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>UI Collection<small>DESIGN SYSTEM ARCHIVE</small></span></a>
+  <div class="sidebar-label">工作空间 <span>01</span></div>
+  <nav aria-label="管理页导航">
+    <a href="#libraries" data-view="libraries" aria-current="page"><span data-icon="grid"></span>组件库总览<span class="nav-count">3</span></a>
+    <a href="#favorites" data-view="favorites"><span data-icon="star"></span>我的收藏<span class="nav-count" id="favorite-count">0</span></a>
+    <a href="#publish" data-view="publish"><span data-icon="upload"></span>静态展示指南</a>
+  </nav>
+  <div class="sidebar-collection"><span class="sidebar-label">DESIGN LANGUAGE</span><a href="raster-ui/index.html"><i class="swatch-pixel"></i>Raster UI<span>↗</span></a><a href="soft-ui/index.html"><i class="swatch-soft"></i>Soft UI<span>↗</span></a><a href="surface-ui/index.html"><i class="swatch-glass"></i>Surface UI<span>↗</span></a></div>
+  <div class="sidebar-bottom"><div class="archive-mark" aria-hidden="true">UI<span>®</span></div><p>三种表达，同一份秩序。<br>为每一套界面保留完整的细节。</p><span>PERSONAL DESIGN COLLECTION</span></div>
+</aside>
+<div class="collection-content">
+  <header class="collection-topbar"><div class="breadcrumbs">工作空间 <span>/</span> <strong id="current-page">组件库总览</strong></div><a href="https://github.com/Star1ver-an/raster-ui" target="_blank" rel="noopener"><span data-icon="code"></span>GitHub 仓库<span aria-hidden="true">↗</span></a></header>
+  <main id="collection-main">
+    <section class="collection-hero" aria-labelledby="hero-title"><div><div class="eyebrow"><span></span> THE INTERFACE COLLECTION</div><h1 id="hero-title">界面有风格，<br>组件有秩序<span>。</span></h1><p>从像素的克制，到柔和的触感，再到光的折射。<br>在一个工作空间里，浏览、比较和使用你的组件库。</p><a class="text-link" href="#libraries">浏览全部设计 <span aria-hidden="true">↘</span></a></div><div class="hero-art" aria-hidden="true"><div class="art-label">THREE MATERIALS.<br>ONE COLLECTION.</div><div class="art-surface art-pixel"><i></i><b>01</b><span>RASTER</span></div><div class="art-surface art-soft"><i></i><b>02</b><span>SOFT</span></div><div class="art-surface art-glass"><i></i><b>03</b><span>SURFACE</span></div><span class="art-caption">AN EXPLORATION OF DIGITAL SURFACES</span></div></section>
+    <section class="collection-metrics" aria-label="组件库统计"><div><span>组件库</span><strong>03<small>LIBRARIES</small></strong></div><div><span>文档章节</span><strong>54<small>SECTIONS</small></strong></div><div><span>视觉主题</span><strong>05<small>THEMES</small></strong></div><div class="metric-note"><span data-icon="layers"></span><p>统一目录与代码格式<br><b>每一套设计，都可以直接操作。</b></p></div></section>
+    <section id="libraries" aria-labelledby="library-heading"><div class="section-title"><div><span class="eyebrow">YOUR LIBRARIES</span><h2 id="library-heading">组件库总览 <span id="result-count">03</span></h2></div><div class="view-switch" role="group" aria-label="展示方式"><button type="button" data-layout="grid" aria-pressed="true" aria-label="卡片视图"><span data-icon="grid"></span></button><button type="button" data-layout="list" aria-pressed="false" aria-label="列表视图"><span data-icon="list"></span></button></div></div><div class="collection-toolbar"><div class="collection-filters" role="group" aria-label="组件库分类"><button type="button" data-filter="all" aria-pressed="true">全部设计 <span>3</span></button><button type="button" data-filter="pixel" aria-pressed="false">像素风格</button><button type="button" data-filter="material" aria-pressed="false">材质探索</button></div><label class="collection-search"><span data-icon="search"></span><input id="library-search" type="search" placeholder="搜索名称、风格或组件…" aria-label="搜索组件库"><kbd aria-hidden="true">/</kbd></label></div><p class="sr-only" id="collection-results" role="status" aria-atomic="true"></p><div class="library-grid" id="library-grid"></div><div class="collection-empty" id="collection-empty" hidden><span data-icon="search"></span><h3>这里还没有组件库</h3><p id="empty-message">试试其他关键词，或清除筛选。</p><button type="button" id="reset-collection">查看全部组件库</button></div></section>
+    <section class="publish-panel" id="publish" aria-labelledby="publish-title" hidden><span class="eyebrow">PUBLISH YOUR COLLECTION</span><h2 id="publish-title">把设计，放到一个可分享的地址。</h2><p>这是一份纯静态组件库。管理页与三套文档使用相对路径，可以作为 GitHub Pages 项目站点展示。</p><ol><li><span>01</span><div><h3>提交完整项目</h3><p>将根目录管理页、共享资源和三套组件库一起提交到仓库。</p></div></li><li><span>02</span><div><h3>启用 GitHub Pages</h3><p>打开仓库 Settings → Pages，将 Source 设为 GitHub Actions。</p></div></li><li><span>03</span><div><h3>运行部署工作流</h3><p>推送到 master，或在 Actions 中手动运行 Deploy UI Collection。工作流只发布构建后的静态文件。</p></div></li></ol><div class="publish-note"><span data-icon="info"></span><p>收藏和视图偏好只保存在当前浏览器。在线管理页用于浏览与整理，不需要账户或服务器。</p></div><a class="primary-link" href="https://github.com/Star1ver-an/raster-ui/settings/pages" target="_blank" rel="noopener">打开仓库 Pages 设置 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://docs.github.com/zh/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages" target="_blank" rel="noopener">GitHub Pages 官方说明 ↗</a></section>
+    <footer class="collection-footer"><span><b>UI COLLECTION</b> / 设计资产与组件规范</span><span>Designed to be explored.</span></footer>
+  </main>
+</div>
+<div class="collection-toast" id="collection-toast" role="status" hidden></div>
+<dialog class="link-dialog" id="link-dialog" aria-labelledby="link-title"><h2 id="link-title">复制页面地址</h2><p>浏览器未允许自动复制。下方地址已选中，可按 Ctrl/Cmd + C 复制。</p><input readonly id="copy-url" aria-label="页面地址"><button type="button" id="close-link-dialog">关闭</button></dialog>
+</body>
+</html>
